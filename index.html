@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Switching detector</title>
+    <style>
+        span{
+            font-size: 180px;
+        }
+
+
+        body{
+            background-color: aquamarine;
+
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        div{
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Tab Switch detector using Javascipt </h1>
+
+    <div>
+        You have switched tab  times
+        <div>
+            <span id="switch"> 0 </span>
+        </div>
+    </div>
+
+    <div id="warning">
+
+    </div>
+    <script>
+        let x  = 0 ;
+        document.addEventListener("visibilitychange",function(){
+            
+            if (document.visibilityState === "hidden"){
+                ++x;
+                alert("Tab Switiching is not allowed , You are marked as suspicious");
+                 
+            }
+            document.getElementById("switch").innerHTML = x ;
+            if(x>0){
+            document.getElementById("warning").innerHTML = "You are marked as suspicious and Your exam will be canceled now";
+            }
+        })
+
+
+    </script>
+</body>
+</html>
